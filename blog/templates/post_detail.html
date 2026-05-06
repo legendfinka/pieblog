@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ post.title }}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #007bff;
+      }
+
+      .date {
+        color: gray;
+        font-size: 13px;
+      }
+
+      .content {
+        margin-top: 20px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="back" href="{% url 'blog' %}">Back to list</a>
+    <h1>{{ post.title }}</h1>
+    <div class="date">{{ post.created_at }}</div>
+
+    <div class="content">{{ post.content }}</div>
+    <hr />
+    <a href="{% url 'post_delete' post.id %}" style="color: red"
+      >Delete this post</a
+    >
+  </body>
+</html>
